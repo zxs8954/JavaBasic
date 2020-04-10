@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Javabasic" />
         <module name="JavaBasic" />
+        <module name="NewJava" />
         <module name="List" />
       </profile>
     </annotationProcessing>
