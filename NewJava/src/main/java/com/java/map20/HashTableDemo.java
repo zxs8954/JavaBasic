@@ -16,7 +16,7 @@ import java.util.Map;
 * */
 public class HashTableDemo {
     public static void main(String[] args) {
-        Map<String,String> map=new Hashtable<>();//hashTable不能存储null
+        Map<String,String> map=new Hashtable<String, String>();//hashTable不能存储null
         map.put(null,null);
         System.out.println(map);
 
