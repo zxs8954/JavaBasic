@@ -1,0 +1,6 @@
+a 97  z122
+A 65  Z90
+0-9 48-57
+GBK 中文
+Unicode 万国码
+char存储汉字的时候，会查询Unicode

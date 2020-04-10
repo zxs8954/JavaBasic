@@ -1,0 +1,17 @@
+InputStream                     字节流
+    FileInputStream
+    BufferedInputStream
+
+OutputStream                    字节流
+    FileOutputStream
+    BufferedOutputStream
+
+Writer                          文本
+    OutputStreamWriter
+        FileWriter
+    BufferedWriter
+
+Reader                          文本
+     InputStreamReader
+        FileReader
+     BufferedReader
