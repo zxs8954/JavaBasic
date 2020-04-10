@@ -48,7 +48,7 @@ public class HuaWeiCode {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int num = sc.nextInt();
-            TreeSet<Integer> tree = new TreeSet<>();
+            TreeSet<Integer> tree = new TreeSet<Integer>();
             for (int i = 0; i < num; i++) {
                 int curr = sc.nextInt();
                 tree.add(curr);
