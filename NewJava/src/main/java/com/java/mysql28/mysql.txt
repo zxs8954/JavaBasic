@@ -1,0 +1,78 @@
+1、数据类型：
+    int
+    double
+    varchar
+    date   日期类型，格式yyyy-MM-dd只有年月日，没有时分秒
+2、创建表       CREATE TABLE users (
+                 uid INT PRIMARY KEY AUTO_INCREMENT ,
+                 uname VARCHAR(20),
+                 uaddress VARCHAR(200)
+             );
+3、查询排序
+SELECT * FROM zhangwu WHERE zname LIKE'%支出%' ORDER BY zmoney DESC
+
+4、-- 删除热水器
+  DELETE FROM product WHERE id=8;
+5、修改表结构  CREATE TABLE users (
+             uid INT PRIMARY KEY AUTO_INCREMENT,
+             uname VARCHAR(20),
+             uaddress VARCHAR(200)
+         );
+         /*
+            添加列,添加字段
+            alter table 表名 add 列名 数据类型 约束
+         */
+          ALTER TABLE users ADD tel INT ;
+
+          /*
+            修改列, 在原有的列上修改
+            修改列名,数据类型约束
+            alter table 表名 modify 列名 数据类型 约束
+          */
+          ALTER TABLE users MODIFY tel VARCHAR(50);
+
+          /*
+             修改列名
+             alter table 表名 change 旧列名 新列名 数据类型 约束
+          */
+          ALTER TABLE users CHANGE tel newtel DOUBLE;
+
+          /*
+            删除列
+            alter table 表名 drop 列名
+          */
+          ALTER TABLE users DROP newtel;
+
+          /*
+             修改表名
+             rename table 表名 to 新名
+          */
+          RENAME TABLE users TO newusers
+7、聚合函数-- max 函数,对某列数据,获取最大值
+      SELECT MAX(zmoney) FROM zhangwu
+
+      -- avg 函数,计算一个列所有数据的平均数
+      SELECT AVG(zmoney)FROM zhangwu
+8、分组/*
+        查询所有的数据
+        吃饭支出 共计多少
+        工资收入 共计多少
+        服装支出 共计多少
+        股票收入 共计多少
+        打麻将支出 共计多少钱
+
+        分组查询:  group by 被分组的列名
+        必须跟随聚合函数
+        select 查询的时候,被分组的列,要出现在select 选择列的后面
+    */
+      SELECT SUM(zmoney),zname FROM zhangwu GROUP BY zname
+
+    -- 对zname内容进行分组查询求和,但是只要支出
+    SELECT SUM(zmoney)AS 'getsum',zname FROM zhangwu WHERE zname LIKE'%支出%'
+    GROUP BY zname
+    ORDER BY getsum DESC
+
+    -- 对zname内容进行分组查询求和,但是只要支出, 显示金额大于5000
+    -- 结果集是分组查询后,再次进行筛选,不能使用where, 分组后再次过滤,关键字 having
+    SELECT SUM(zmoney)AS 'getsum',zname FROM zhangwu WHERE zname LIKE'%支出%'
+    GROUP BY zname HAVING getsum>5000
