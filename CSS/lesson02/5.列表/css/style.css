@@ -1,0 +1,27 @@
+#nav{
+    background: #a0a0a0;
+    height: 300px;
+    width: 300px;
+}
+a:hover{
+    color: orange;
+    text-decoration: underline;
+}
+a{
+    text-decoration: none;
+    color: #000;
+    text-indent: 4em;
+    font-size: 14px;
+}
+.title{
+   line-height: 30px;
+    background: red;
+    text-indent: 4em;
+    font-weight: bold;
+    font-size: 18px;
+}
+ul li{
+    list-style: none;
+    height: 30px;
+    text-indent: 1px;
+}
