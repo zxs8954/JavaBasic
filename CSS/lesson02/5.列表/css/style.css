@@ -1,27 +1,44 @@
-#nav{
-    background: #a0a0a0;
-    height: 300px;
-    width: 300px;
+a{
+    text-decoration: none;
+}
+.title{
+    font-size: 18px;
+    font-weight: bold;
+    text-indent: 4em;
+    line-height: 100px;
+    /*颜色  图片   图片位置  平铺方式*/
+    background: red url("../images/1.png") 217px 5px no-repeat;
+}
+/*ul li
+list-style
+        none 无圆
+        circle 空心圆
+        decimal 数字
+        square 正方形
+
+*/
+/*ul{*/
+/*    background: rgba(14, 4, 10, 0.66);*/
+/*}*/
+ul li{
+    height: 30px;
+    list-style: none;
+    text-indent: 1em;
+    background-image: url("../images/2.png");
+    background-repeat: no-repeat;
+    background-position: 186px -18px;
+}
+a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #000;
 }
 a:hover{
     color: orange;
     text-decoration: underline;
 }
-a{
-    text-decoration: none;
-    color: #000;
-    text-indent: 4em;
-    font-size: 14px;
-}
-.title{
-   line-height: 30px;
-    background: red;
-    text-indent: 4em;
-    font-weight: bold;
-    font-size: 18px;
-}
-ul li{
-    list-style: none;
-    height: 30px;
-    text-indent: 1px;
+#nav{
+    width: 300px;
+    height: 354px;
+    background: #a0a0a0;
 }
