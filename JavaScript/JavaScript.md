@@ -1244,4 +1244,148 @@ father.removeChild(father.children[0])
 
 - ![image-20200419205323191](D:\JavaBasic\JavaScript\append.png)
 
-7分26秒
+> 创建一个新的标签，实现插入
+>
+> ```html
+> <body>
+> <p id="js">JavaScript</p>
+> <div id="list">
+>     <p id="me">javaME</p>
+>     <p id="ee">javaEE</p>
+>     <p id="se">javaSE</p>
+> </div>
+> 
+> 
+> <script>
+>     var
+>         js=document.getElementById('js');
+>         list=document.getElementById('list');
+>         list.appendChild(js);//追加到后面
+>         var newP=document.createElement('p');//创建一个p标签
+>         newP.id='newP';
+>         newP.innerHTML='Hello'
+>         list.appendChild(newP);//   
+> </script>
+> </body>
+> ```
+
+```
+//创建一个节点
+var myScript=document.createElement("script");
+myScript.setAttribute('type','text/javascript')
+```
+
+# 9、操作表单（验证）
+
+
+
+- 表单是什么？  
+- 文本框
+- 下拉框 select
+- 单选框 radio
+- 多选框 checkbox
+- 隐藏域 hidden
+- 密码框
+
+获得表单提交的信息
+
+```
+<form action="#">
+    <p>
+    <span>姓名：</span><input type="text" id="user">
+    </p>
+    <p>
+        <span>性别：</span>
+        <input type="radio" name="sex" id="boy">男
+        <input type="radio" name="sex" id="girl">女
+    </p>
+</form>
+
+
+<script>
+    var input_text=document.getElementById('user')
+    //得到输入框的值
+    input_text.value
+    //修改输入框的值
+    input_text.value='123'
+    var boy_radio=document.getElementById("boy")
+    var girl_radio=document.getElementById('girl')
+    boy_radio.checked //检查是否被选中
+</script>
+```
+
+# 10、jQuery
+
+jQuery库：存在大量javaScript函数
+
+> 获取jQuery本地下载或者CDN
+>
+> ```
+> <script src="lib/jquery-3.4.1.js"></script>
+> ```
+
+```
+<!--
+    公式： $(selector).action()
+-->
+
+<a href="" id="text-jquery">点我</a>
+<script>
+    //选择器就是CSS选择器
+    $('#text-jquery').click(
+        function () {
+alert('123');
+        }
+    )
+</script>
+```
+
+> 选择器
+
+```
+<script>
+    $('p').click();//标签选择器
+    $('#id').click();//id选择器
+    $('.class').click()//类选择器
+</script>
+```
+
+### 10.1时间
+
+鼠标时间，键盘时间
+
+```
+   <style>
+        #divMove{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<!--要求：获取鼠标当前的一个坐标-->
+mouse: <span id="mouseMove"></span>
+<div id="divMove">
+    在这里移动鼠标试试
+</div>
+
+<script>
+    //当网页元素加载完毕之后，响应时间
+    $(function () {
+        $('#divMove').mousemove(function (e) {
+            $('#mouseMove').text('x:'+e.pageX+'y:'+e.pageY)
+        })
+    })
+</script>
+```
+
+> 操作DOM
+
+```
+<script src="lib/jquery-3.4.1.js">
+    $('ul').text("asdad")  //设置值
+    $('.java').text() //获得值
+    $('ui').html()  //获得值
+    $('ui').html('设置值')
+```
