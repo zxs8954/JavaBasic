@@ -1,0 +1,105 @@
+1、 File f=new File("d:\\a\\b\\c");
+          f.mkdirs();  //创建多级文件夹
+2、 File f=new File("d:\\b.txt");
+         f.createNewFile();  创建文件
+3、 File file = new File("d:\\创建文件夹\\abc\\bcd\\a.txt");  //删除的是bcd目录下的a.txt
+          boolean b = file.delete();
+4、File f=new File("d:\\c\\v\\ab.txt");
+        String name=f.getName();
+        System.out.println(name);   获取ab.txt的文件名字
+5、 File f = new File("D:\\c\\v");
+          System.out.println(f.isDirectory());
+6、  File f = new File("D:\\c\\v\\ab.txt");
+          System.out.println(f.exists());    路径是否存在
+7、  遍历目录下的所有文件和文件夹有2中方式，一种是String[] str=f.list()   第二种是File[] file=f.listFiles()
+File f = new File("D:\\c\\v\\");
+          String[] str = f.list();
+          for (String s : str) {
+              System.out.println(s);
+          }   遍历目录下的所有文件和文件夹
+   File f = new File("D:\\c\\v\\");
+          File[] f1 = f.listFiles();
+          for (File f2 : f1) {
+              System.out.println(f2);
+          }   遍历目录下的所有文件和文件夹
+8、过滤器implements FileFilter
+             @Override    重写
+            public boolean accept(File pathname){
+                String name=pathname.getName();
+                return name.endsWith("txt");
+            }  判断以txt结尾的文件
+
+          File f = new File("D:\\c\\v\\");
+                  File[] f1 = f.listFiles(new MyFilter());  //传递过滤器对象
+                  for (File f2 : f1) {
+                      System.out.println(f2);
+                  }
+
+9、递归       /*
+               * 计算阶乘
+               * 5*4*3*2*1
+               * */
+               public static int getJieCheng(int i){
+                   if(i==1){
+                       return 1;
+                   }
+                   return i*getJieCheng(i-1);
+               }
+               /*
+               * 方法递归菲波那切数列
+               *       从第三项开始，后面每项是前面2项的和
+               * */
+               public static int getFBNQ(int month){
+                   if(month==1){
+                       return 1;
+                   }
+                   if(month==2){
+                       return 2;
+                   }
+                   return getFBNQ(month-1)+getFBNQ(month-2);
+               }
+               /*
+               * 计算1+2+3+。。。n的和
+               * 计算规律：
+               *   n+(n-1)+(n-1-1)...
+               *   100+(100-1)+(100-1-1)....+(100-1)
+               * */
+              public static int getSum(int n){
+                  if(n==1){
+                      return 1;
+                  }
+                  return n+getSum(n-1);
+              }
+10、遍历文件夹所有的文件
+        File dir = new File("d:\\c");
+                function(dir);
+            }
+            public static void function(File dir) {
+                File[] f = dir.listFiles();
+                for (File a : f) {
+                    if (a.isDirectory()) {
+                        function(a);
+                    } else {
+                        System.out.println(a);
+                    }
+11、 FileOutputStream fos=new FileOutputStream("d:\\b.txt");
+           fos.write(97);   写入int类型
+           byte[] b={1,2,4,5,6,7,8,9,0};
+           fos.write(b);  写入输入
+           fos.write(b,3,2);   写入数组，开始索引，长度
+           fos.write("字符串写入".getBytes());   写入字符串
+
+12、File file=new File("d:\\a.txt");     续写和换行，第二个参数为true
+           FileOutputStream fos=new FileOutputStream(file,true);
+           fos.write("原先存在内容".getBytes());
+           fos.write("\r\n续写内容".getBytes());
+13、FileInputStream fis = new FileInputStream("d:\\a.txt");
+           //读取一个字节，返回int
+           //使用循环方式，读取文件，循环结束条件read()方法返回-1
+           int len = 0;//接收read方法返回值
+           while ((len = fis.read()) != -1) {
+               int i = fis.read();
+               System.out.print((char) len);
+           }
+           //关闭资源
+           fis.close();
